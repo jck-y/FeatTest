@@ -1,29 +1,35 @@
-import { ScrollView, View, Button, StyleSheet} from 'react-native';
+import {View, Button, StyleSheet, TextInput, Text} from 'react-native';
 import React from 'react';
 
-const Jacky = ({ navigation }) => {
-    return (
-        <View>
-
-        </View>
-    );
+const Jacky = () => {
+  return (
+    <View style={styles.container}>
+      <TextInput style={styles.input} placeholder="Type something..." />
+      <Button title="Speech" onPress={() => {}} />
+      <Text style={styles.text}>Text to Speech Jacky</Text>
+    </View>
+  );
 };
 
 export default Jacky;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#f0f0f0',
-      },
-      input: {
-        width: '80%',
-        height: 40,
-        borderColor: '#000',
-        borderWidth: 1,
-        marginBottom: 20,
-        paddingHorizontal: 10,
-      },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#D6C9E6',
+  },
+  input: {
+    width: '80%',
+    height: 50,
+    borderColor: '#000',
+    borderWidth: 1,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+  },
+  text: {
+    fontSize: 20,
+    color: 'blue',
+  },
 });
