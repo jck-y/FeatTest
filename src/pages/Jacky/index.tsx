@@ -1,35 +1,38 @@
-import {View, Button, StyleSheet, TextInput, Text} from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import Tts from 'react-native-tts';
 
-const Jacky = () => {
+const App = () => {
+  useEffect(() => {
+    Tts.getInitStatus().then(() => {
+      Tts.setDefaultLanguage('id-ID');
+    });
+  }, []);
+
+  const speak = () => {
+    Tts.speak('');
+  };
+
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} placeholder="Type something..." />
-      <Button title="Speech" onPress={() => {}} />
-      <Text style={styles.text}>Text to Speech Jacky</Text>
+      <Text style={styles.text}>Tekan tombol untuk mendengar TTS</Text>
+      <Button title="Speak" onPress={speak} />
     </View>
   );
 };
-
-export default Jacky;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#D6C9E6',
-  },
-  input: {
-    width: '80%',
-    height: 50,
-    borderColor: '#000',
-    borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
+    backgroundColor: '#F5FCFF',
   },
   text: {
     fontSize: 20,
-    color: 'blue',
+    textAlign: 'center',
+    margin: 10,
   },
 });
+
+export default App;
